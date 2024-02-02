@@ -3,6 +3,24 @@
 
 // container
 
+html {
+  scroll-behavior: smooth;
+
+  @media (max-width: 70em) {
+    /* … */
+    font-size: 0.7rem;
+  }
+
+  @media (max-width: 36.25em) {
+    /* … */
+    font-size: 0.3rem;
+  }
+  // @media (max-width: 20em) {
+  //   /* … */
+  //   font-size: 0.5rem;
+  // }
+}
+
 body {
   font-size: 1rem;
   font-family: $font-family-raleway;
@@ -42,6 +60,11 @@ body {
 }
 // header end
 
+.burger-menu__checkbox {
+  display: none;
+}
+
+//
 .toggle {
   display: flex;
   margin-left: auto;
@@ -110,6 +133,10 @@ body {
 }
 .bio {
   grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: 63.9375em) {
+    grid-template-columns: 1fr;
+  }
 }
 .bio__heading {
   font-size: $font-size-70;
@@ -144,8 +171,12 @@ body {
 .bio__pic-content {
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-self: end;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  @media (max-width: 63.9375em) {
+    grid-row: 1;
+  }
 }
 .bio__pic {
   display: inline-block;
@@ -160,6 +191,9 @@ body {
   z-index: -1;
   border-radius: 1.1rem;
   box-shadow: 2.17543px 8.7017px 38.0699px rgba(0, 0, 0, 0.15);
+  @media (max-width: 31em) {
+    height: 40.75rem;
+  }
 }
 
 .bio__links {
@@ -255,4 +289,66 @@ body {
   flex-shrink: 0;
   scroll-snap-align: start;
   line-height: 1.6;
+}
+// 63.9375
+
+@media (max-width: 63.9375em) {
+  .bio__pic {
+    width: 100%;
+  }
+  .bio {
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 31.25em) {
+    .bio__pic {
+      width: 100%;
+    }
+
+    // animation of burger
+    .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(1) {
+      transform: translateY(1.1rem) rotate(45deg);
+    }
+    .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(2) {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(3) {
+      transform: translateY(-0.1rem) rotate(-45deg);
+    }
+
+    .header:has(.burger-menu__checkbox:checked) .navigation {
+      top: 100%;
+      transition: $transition-timing;
+    }
+    .navigation {
+      position: absolute;
+      padding: 2rem 0;
+      top: 0;
+      border-bottom: 0.1rem solid var(--color-text);
+      z-index: -2;
+      width: 100vw;
+      background-color: $color-background;
+    }
+    .navigation__list {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .burger-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.46875rem;
+      cursor: pointer;
+
+      &__bar {
+        height: calc(0.3rem / 1.6);
+        width: calc(4.375rem / 1.6);
+        background-color: $color-text;
+        transition: $transition-timing;
+      }
+    }
+  }
 }

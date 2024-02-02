@@ -21,30 +21,40 @@
   <body>
     <div class="container">
       <video class="video-loop" autoplay loop muted>
-        <source src="video-loop.mp4" type="video/mp4" />
+        <source src="./video-loop.mp4" type="video/mp4" />
       </video>
       <header class="header">
+        <input type="checkbox" class="burger-menu__checkbox" id="menu" />
+        <label for="menu" class="burger-menu">
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+        </label>
+
+        <!-- burgerMEnu -->
         <nav class="navigation">
           <ul class="navigation__list">
             <li class="navigation__link navigation__bio">
-              <a href="#">Bio</a>
+              <a href="#bio">Bio</a>
             </li>
             <li class="navigation__link navigation__skills">
-              <a href="#">Skills</a>
+              <a href="#skills">Skills</a>
             </li>
-            <li class="navigation__link navigation__media">
-              <a href="#">Media</a>
-            </li>
-            <li class="navigation__link navigation__project">
-              <a href="#">Projects</a>
-            </li>
+            <!-- <li class="navigation__link navigation__media">
+              <a href="#media">Media</a>
+            </li> -->
+            <!-- <li class="navigation__link navigation__project">
+              <a href="#projects">Projects</a>
+            </li> -->
             <li class="navigation__link navigation__clients">
-              <a href="#">My clients</a>
+              <a href="#clients">My clients</a>
             </li>
             <li class="navigation__link navigation__contact">
-              <a href="#">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
+
+          <!-- burgerMEnu -->
         </nav>
 
         <div class="toggle">

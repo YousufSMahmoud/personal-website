@@ -1,4 +1,9 @@
-__reset.scss * {
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+* {
   box-sizing: border-box;
 }
 
@@ -139,6 +144,22 @@ table {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 70em) {
+  html {
+    /* … */
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 36.25em) {
+  html {
+    /* … */
+    font-size: 0.3rem;
+  }
+}
+
 body {
   font-size: 1rem;
   font-family: "Raleway", sans-serif;
@@ -174,6 +195,10 @@ body {
   background-color: #fff;
   z-index: -1;
   top: 0.1rem;
+}
+
+.burger-menu__checkbox {
+  display: none;
 }
 
 .toggle {
@@ -250,6 +275,11 @@ body {
 .bio {
   grid-template-columns: repeat(2, 1fr);
 }
+@media (max-width: 63.9375em) {
+  .bio {
+    grid-template-columns: 1fr;
+  }
+}
 
 .bio__heading {
   font-size: 4.375rem;
@@ -284,8 +314,14 @@ body {
 .bio__pic-content {
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-self: end;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+@media (max-width: 63.9375em) {
+  .bio__pic-content {
+    grid-row: 1;
+  }
 }
 
 .bio__pic {
@@ -302,6 +338,11 @@ body {
   z-index: -1;
   border-radius: 1.1rem;
   box-shadow: 2.17543px 8.7017px 38.0699px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 31em) {
+  .bio__pic-content::before {
+    height: 40.75rem;
+  }
 }
 
 .bio__links {
@@ -396,4 +437,59 @@ body {
   flex-shrink: 0;
   scroll-snap-align: start;
   line-height: 1.6;
+}
+
+@media (max-width: 63.9375em) {
+  .bio__pic {
+    width: 100%;
+  }
+  .bio {
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 63.9375em) and (max-width: 31.25em) {
+  .bio__pic {
+    width: 100%;
+  }
+  .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(1) {
+    transform: translateY(1.1rem) rotate(45deg);
+  }
+  .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(2) {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(3) {
+    transform: translateY(-0.1rem) rotate(-45deg);
+  }
+  .header:has(.burger-menu__checkbox:checked) .navigation {
+    top: 100%;
+    transition: 0.3s;
+  }
+  .navigation {
+    position: absolute;
+    padding: 2rem 0;
+    top: 0;
+    border-bottom: 0.1rem solid var(--color-text);
+    z-index: -2;
+    width: 100vw;
+    background-color: #fff;
+  }
+  .navigation__list {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 1rem;
+  }
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.46875rem;
+    cursor: pointer;
+  }
+  .burger-menu__bar {
+    height: 0.1875rem;
+    width: 2.734375rem;
+    background-color: #000;
+    transition: 0.3s;
+  }
 }/*# sourceMappingURL=style.css.map */
